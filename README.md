@@ -44,3 +44,13 @@ python3 tools/cut_sprites.py
 O script precisa de Pillow, numpy e scipy. Ele gera `assets/sprites/`, `assets/portraits/`, `assets/stage.jpg` e `js/atlas.js`, e grava em `assets/debug/` folhas de conferência com a âncora (os pés) de cada pose.
 
 O que já está no kit de cada lutador aparece no comentário do topo de `index.html`.
+
+## Aviso de paródia
+
+Este é um projeto de fã, sem fins lucrativos. Os lutadores são caricaturas carinhosas de figuras públicas da comunidade dev brasileira, baseadas só no personagem público de cada um e no resultado de eleicaobolhadev.com. Nenhuma das pessoas retratadas participou, foi consultada ou endossa o jogo. O Claude aparece como personagem de paródia, sem relação com a Anthropic. As frases e os golpes são piada, não citações nem opiniões atribuídas a ninguém.
+
+Se você é uma das pessoas retratadas ou detém os direitos de algum material e quer que algo seja alterado ou removido, [abra uma issue](https://github.com/patrick-muller/CommitFighter/issues). Pedidos de remoção serão atendidos.
+
+## Licença
+
+O código está sob a licença MIT (veja [LICENSE](LICENSE)). A licença não cobre a arte, o vídeo e as demais mídias em `assets/`, nem os nomes, a imagem e os personagens das pessoas retratadas.
