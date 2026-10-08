@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+  CommitFighter: Eleição da Bolha (protótipo)
+  Como abrir: duplo clique neste index.html (funciona via file://, sem build, sem servidor, offline).
+
+  KIT DE CADA LUTADOR
+  Todos têm idle, andar, pulo, soco (5f/40), chute (8f/55), block, hitstun, knockdown, KO e vitória,
+  com sprites recortados das folhas do Grok (16 poses). Normal = frente + chute.
+  [C] = completo · [S] = simplificado · [G] = super genérico com corte do telão
+
+  1. Mano Deyvin       [C] Fala, papai (pelas costas: oponente vira e aplaude 20f)
+                       [C] Escala 7x0 (some 7f, volta com a caneca, 100) + medidor de chopp (7 hits = crítico 2x)
+                       [C] Subiu a Rampa (confete, oponente preso ouvindo o agradecimento, 280)
+  2. Augusto Galego    [C] Visto de nômade (dash; rouba 1 frame de startup por 5s)
+                       [C] Curso relâmpago (guarda = leu, 80 · pular/não reagir = 120 e derruba)
+                       [C] Já era a verba (HUD some 8s, Galego ganha velocidade; rush de 280)
+  3. Raul Sena         [S] Carguinho (se segurar guarda: aliado 2s sem atacar, depois 60 pelas costas)
+                       [C] Daily virou e-mail (4 e-mails lentos: guarda lê e cura 20; não lido 25; 4 ignorados = chip contínuo)
+                       [S] Fim do rate limit (rush de 280 + stun "429"; stun dobra contra o Claude)
+  4. Sam Santos        [C] Promise pendente (acerta agora, os 70 de dano chegam 3s depois)
+                       [C] BeeThreads (3 workers, 35 cada)
+                       [C] Ship-it (log verde no stage; rush de 280; abaixo de 30% de vida, +200 de build quebrado)
+  5. Lucas Montano     [C] Laptop Positivo (soco curto que empurra; oponente com frame data de notebook de entrada por 4s)
+                       [C] Quinhentos estagiários (fila de estagiários rente ao chão, 120 e derruba; quem está no ar passa por cima)
+                       [C] A bolha de antes (stage vira fórum de 2014 até o fim do round; rush de 280; especiais do oponente pela metade)
+  6. Sibelius          [S] Isso não escala (no hit, por 4s, repetir o mesmo botão faz o golpe sair no vazio)
+                       [C] Sem form (guarda = preenche, travado 1s · senão 100 de lead perdido)
+                       [C] Pix no round (vida cai em centavos com som de notificação, 260)
+  7. Fabio Akita       [C] Bloqueio (reflete projétil e deixa o oponente mudo 3s)
+                       [C] Grito pras nuvens (onda que empurra; no canto vira hitstun longo)
+                       [S] ai-memory (águia cruza a tela, 280; o botão mais usado do oponente é punido por 5s)
+  8. Vini Lana         [S] Aula ao vivo (marca o ponto fraco: o próximo hit causa dano em dobro; sem a regra de "narrar")
+                       [S] Academia (3 alunos correm e acertam 35; um tem bug e anda para trás; ainda não copiam o último golpe)
+                       [C] 37k inscritos (likes e corações como projéteis, "PRIMEIRO" atrasado no meio)
+  9. Filipe Deschamps  [S] Competência (aura de 4s: +20% de dano dele, −20% do oponente "bug de tutorial")
+                       [C] Olha isso (thumbnail: apertar soco = entra no vídeo e perde 1s; encostar = 100)
+                       [C] Newsletter (160 e leitura obrigatória de 4s; martelar botões acelera)
+  10. Claude (chefão)  [C] Recusa educada (para o golpe, dano zero, o oponente perde os botões por 12f)
+                       [C] Resposta longa (balão de chat como projétil, 100) + Context window (+10%/10s ao longo da
+                           partida; ao estourar esquece o começo e repete o primeiro golpe errado, com metade do dano)
+                       [C] Estou pensando (spinner trava os dois; uppercut em 3 passos, 300; com o contexto estourado, sai pela metade e diz "desculpa")
+                       Chefão no Arcade: vida 900, dano +25%, IA mais esperta. No Versus vale como lutador normal.
+
+  Abertura: "APERTE ENTER" e depois o vídeo assets/bolhadev.mp4, que toca uma vez e é pulável (Enter/Esc).
+  Modos: Arcade (3 CPUs + Claude), Versus (P2 humano ou CPU), Treino (T alterna boneco parado/bloqueando).
+  Atalho: digite "claude" na tela inicial para desbloquear o chefão.
+  Arte: tools/cut_sprites.py recorta assets/raw/*.jpeg (folhas do Grok) em assets/sprites + js/atlas.js.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CommitFighter: Eleição da Bolha</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #05030a; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; background: #120c1c; }
+</style>
+</head>
+<body>
+<canvas id="game" width="960" height="540" tabindex="0"></canvas>
+<script src="js/config.js"></script>
+<script src="js/atlas.js"></script>
+<script src="js/input.js"></script>
+<script src="js/store.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/fighter.js"></script>
+<script src="js/match.js"></script>
+<script src="js/kits.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/render.js"></script>
+<script src="js/screens.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
